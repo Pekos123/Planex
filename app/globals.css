@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
+@import "tailwindcss-animated";
+@plugin "daisyui";
 
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(100px, -50px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes float {
+  0% { 
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33%{ 
+    transform: translate(30px, -30px) rotate(5deg);
+  }
+  66%{ 
+    transform: translate(-20px, 20px) rotate(-5deg);
+  }
+  100% { transform:  translate(0, 0) rotate(0deg);}
+}
+ 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-code: "Google Sans Code", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +40,36 @@
   }
 }
 
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background) !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--foreground) !important;
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground) var(--background);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
+
+

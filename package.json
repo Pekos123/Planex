@@ -19,9 +19,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "daisyui": "^5.5.11",
     "eslint": "^9",
     "eslint-config-next": "16.0.8",
     "tailwindcss": "^4",
+    "tailwindcss-animated": "^2.0.0",
     "typescript": "^5"
-  }
+  },
+  "browserslist": "> 1%"
 }
