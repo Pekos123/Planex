@@ -1,29 +1,6 @@
 import Link from "next/link";
 import GlassButton from "./components/GlassButton";
-
-const Blobs = () => {
-  return(
-    <div className="">
-      <svg 
-        viewBox="0 0 200 200" 
-        xmlns="http://www.w3.org/2000/svg" 
-        className="fixed flex w-[100%] h-[100%] -left-[40%] -bottom-[32%] animate-[float_20s_ease-in-out_infinite]"
-      >
-        <path fill="#8A3FFC" d="M16.1,-38.7C21,-25.1,25.1,-21,38.7,-16.1C52.3,-11.3,75.3,-5.6,82.8,4.4C90.4,14.4,82.5,28.7,71.7,38.5C61,48.2,47.3,53.3,34.9,56.4C22.5,59.5,11.2,60.6,0.1,60.4C-10.9,60.1,-21.9,58.5,-31.5,53.7C-41.1,49,-49.4,41.1,-53.5,31.7C-57.6,22.2,-57.5,11.1,-62.2,-2.7C-66.9,-16.5,-76.4,-33.1,-71.9,-41.8C-67.4,-50.6,-48.9,-51.6,-34.6,-59.8C-20.3,-68,-10.1,-83.3,-2.3,-79.4C5.6,-75.5,11.2,-52.3,16.1,-38.7Z" transform="translate(100 100)" />
-      </svg>
-      
-      <svg 
-        viewBox="0 0 200 200" 
-        xmlns="http://www.w3.org/2000/svg" 
-        className="fixed flex w-[50%] h-[50%] -right-[10%] -top-[12%] animate-[float_15s_ease-in-out_infinite_reverse]"
-      >
-        <path fill="#b8b8b8" d="M28.2,-49.6C39.3,-42.4,53,-40.5,54.7,-33.1C56.3,-25.7,46,-12.8,42.9,-1.8C39.9,9.3,44,18.5,45.1,30.7C46.2,42.9,44.2,58,36.2,65.5C28.1,73.1,14.1,73,-1,74.7C-16,76.3,-32,79.8,-43.9,74.5C-55.8,69.2,-63.6,55.2,-65,41.4C-66.3,27.5,-61.2,13.7,-57.4,2.2C-53.6,-9.4,-51.2,-18.7,-43,-20.9C-34.9,-23,-21.2,-17.9,-13,-26.8C-4.9,-35.6,-2.5,-58.4,3,-63.7C8.6,-68.9,17.1,-56.7,28.2,-49.6Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-  );
-};
-
-
+import Blobs from './components/home/BlobsComponent'
 
 export default function Home() {
   return (
