@@ -17,7 +17,7 @@ const Badge = ({className, badgeType, onClick}: {className?: string, badgeType: 
   };
 
   return (
-    <div className={`${className || ''} font-code rounded-2xl ${bg[badgeType]} w-30 h-8 hover:shadow-md duration-200 my-5 flex items-center justify-center`} onClick={onClick}>{badgeTexts[badgeType]}</div>
+    <div className={`${className || ''} font-code rounded-4xl ${bg[badgeType]} text-lg w-40 h-12 hover:shadow-md duration-200 my-5 flex items-center justify-center`} onClick={onClick}>{badgeTexts[badgeType]}</div>
   );
 };
 
@@ -41,9 +41,9 @@ const SelectBadgeDropdown = () => {
 
   return (
     <div className="relative">
-      {isOpen && <Badge badgeType={firstDropdownBadge} onClick={() => {handleSelect('first') }}/>}
+      {isOpen && <Badge className="animate-jump-in animate-duration-200" badgeType={firstDropdownBadge} onClick={() => {handleSelect('first') }}/>}
       <Badge badgeType={badge} onClick={() => setIsOpen(!isOpen)} className={isOpen ? 'scale-90' : 'scale-100 hover:scale-105'}/>
-      {isOpen && <Badge badgeType={secDropdownBadge} onClick={() => handleSelect('sec')}/>}
+      {isOpen && <Badge className="animate-jump-in animate-duration-200" badgeType={secDropdownBadge} onClick={() => handleSelect('sec')}/>}
     </div>
   );
 };
