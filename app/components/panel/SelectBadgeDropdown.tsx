@@ -1,33 +1,49 @@
 'use client'
 import { useState } from "react";
 
-const SelectBadgeDropdown = () => {
-  const [badge, setBadge] = useState<'success' | 'warning' | 'error'>('success');
-  const [isOpen, setIsOpen] = useState(false);
+type BadgeType = 'completed' | 'inwork' | 'notstarted';
 
-  const badgeTexts: Record<string, string> = {
-    success: 'Completed',
-    warning: 'In work',
-    error: 'Not started'
+const Badge = ({className, badgeType, onClick}: {className?: string, badgeType: BadgeType, onClick: () => void}) => {
+  const bg: Record<BadgeType, string>  = {
+      completed: 'bg-[#33D48E] hover:shadow-[#33d48e]/50',
+      inwork: 'bg-[#EEBF40] hover:shadow-[#eebf40]/50',
+      notstarted: 'bg-[#F45050] hover:shadow-[#f45050]/50',
   };
 
-  const handleSelect = (newBadge: 'success' | 'warning' | 'error') => {
-    setBadge(newBadge);
+  const badgeTexts: Record<BadgeType, string> = {
+    completed: 'Completed',
+    inwork: 'In work',
+    notstarted: 'Not started'
+  };
+
+  return (
+    <div className={`${className || ''} font-code rounded-2xl ${bg[badgeType]} w-30 h-8 hover:shadow-md duration-200 my-5 flex items-center justify-center`} onClick={onClick}>{badgeTexts[badgeType]}</div>
+  );
+};
+
+const SelectBadgeDropdown = () => {
+  const [badge, setBadge] = useState<BadgeType>('notstarted');
+  const [firstDropdownBadge, setFirstBadge] = useState<BadgeType>('completed');
+  const [secDropdownBadge, setSecBadge] = useState<BadgeType>('inwork');
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (whichBadge: 'first' | 'sec') => {
+    const prevBadge = badge;
+    if(whichBadge === 'first'){
+      setBadge(firstDropdownBadge);
+      setFirstBadge(prevBadge);
+    }else {
+      setBadge(secDropdownBadge);
+      setSecBadge(prevBadge);
+    }
     setIsOpen(false);
   };
 
   return (
     <div className="relative">
-       <div role="button" className={`badge badge-${badge} w-28 hover:shadow-md hover:shadow-white duration-200`} onClick={() => setIsOpen(!isOpen)}>{badgeTexts[badge]}</div>
-
-       {isOpen && (
-         <div className="absolute top-full right-0 bg-black/20 flex flex-col gap-1 rounded-lg py-2 z-10 w-28 shadow-md/70 shadow-white/10 border-white p-1">
-           <div className="badge badge-success w-full hover:shadow-md hover:shadow-green-600 duration-200" onClick={() => handleSelect('success')}>Completed</div>
-           <div className="badge badge-warning w-full hover:shadow-md hover:shadow-yellow-600 duration-200" onClick={() => handleSelect('warning')}>In work</div>
-            <div className="badge badge-error w-full hover:shadow-md hover:shadow-red-600 duration-200" onClick={() => handleSelect('error')}>Not started</div>
-         </div>
-       )}
-
+      {isOpen && <Badge badgeType={firstDropdownBadge} onClick={() => {handleSelect('first') }}/>}
+      <Badge badgeType={badge} onClick={() => setIsOpen(!isOpen)} className={isOpen ? 'scale-90' : 'scale-100 hover:scale-105'}/>
+      {isOpen && <Badge badgeType={secDropdownBadge} onClick={() => handleSelect('sec')}/>}
     </div>
   );
 };
