@@ -40,7 +40,7 @@ const SelectBadgeDropdown = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative max-sm:scale-70">
       {isOpen && <Badge className="animate-jump-in animate-duration-200" badgeType={firstDropdownBadge} onClick={() => {handleSelect('first') }}/>}
       <Badge badgeType={badge} onClick={() => setIsOpen(!isOpen)} className={isOpen ? 'scale-90' : 'scale-100 hover:scale-105'}/>
       {isOpen && <Badge className="animate-jump-in animate-duration-200" badgeType={secDropdownBadge} onClick={() => handleSelect('sec')}/>}
