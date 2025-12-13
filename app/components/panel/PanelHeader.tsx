@@ -1,6 +1,6 @@
 import PlusButton from '../PlusButton'
 
-const PanelHeader = ({ className }: { className?: string }) => {
+const PanelHeader = ({ className}: { className?: string} ) => {
   return (
     <div className={`navbar shadow-sm font-code h-24 px-12 max-sm:px-6 ${className || ''}`}>
       <div className="navbar-start">

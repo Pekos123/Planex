@@ -1,15 +1,15 @@
 import Header from '../components/panel/PanelHeader'
-import TaskElement from '../components/panel/TaskElement';
+import TaskElement from '../components/panel/TaskElement/TaskElement';
 
 export default function Panel() {
 
   const data = [
-    "test data",
-    "its bad but trust me bro on this one",
-    "i will try my best to fix this as soon as posible",
-    "not working on phones? ye i know",
-    "did u done your homework?",
-    "add responsive for mobile and midium then delete this data",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ];
 
   return(

@@ -1,0 +1,5 @@
+.placeholder-class:empty::before {
+  content: 'name your task...';
+  color: #999;
+}
+

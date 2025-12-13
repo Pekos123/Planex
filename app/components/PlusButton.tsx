@@ -1,6 +1,8 @@
-const PlusButton = ({ className, dataTheme }: { className?: string, dataTheme?: string }) => {
+'use client'
+
+const PlusButton = ({ className, dataTheme, onClick }: { className?: string, dataTheme?: string, onClick?: React.MouseEventHandler }) => {
   return (
-    <button className={`btn btn-circle btn-ghost ${className || ''}`} data-theme={dataTheme}>
+    <button className={`btn btn-circle btn-ghost ${className || ''}`} data-theme={dataTheme} onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-8 w-8"
